@@ -22,3 +22,9 @@ worker-scorer -> coordinator: tools/score.py, tools/timeit.sh and tools/test_sco
 L-006 The agent tool does not report per-agent token usage to the coordinator, so the budget keeper gets wall-clock times and agent counts, and tokens are estimated from the size of text read and written. Affects: the run-cost figures.
 ### 2026-10-06T14:19:22Z | coordinator | limitation
 L-006 correction: the completion notifications do report per-agent tokens, tool uses and duration (worker-scorer: 98,061 tokens, 15 tool uses, 290.9 s). The tokens per draft inside a multi-draft agent run still cannot be split exactly, so per-draft tokens are estimated as agent tokens divided by drafts. L-006 is narrowed to that.
+### 2026-10-06T14:19:51Z | coordinator | result returned
+worker-facts -> coordinator: facts.json has 105 facts (F01-F33, H01-H72) from 88 spec sentences; facts_coverage.md; tools/check_facts_coverage.py gives PASS on 6 checks (coordinator re-ran it: PASS); 29 facts carry ambiguity notes. 102,985 tokens, 323.6 s. Evidence: log/worker-facts.md. The ruler goes to judge-1 for a completeness/faithfulness check.
+### 2026-10-06T14:19:51Z | coordinator | task handed out
+coordinator -> worker-dev: "Build dev cases R1-R3 (verbatim spec_A, rewrite_B, rewrite_C) and M1-M5 (rewrite_C with 2-4 planted errors each), plus GT in cases/dev_answers/ and a mutation manifest. Label the real cases' existing issues against facts.json."
+### 2026-10-06T14:19:51Z | coordinator | task handed out
+coordinator -> worker-holdout: "Build holdout cases H1-H6: a fresh plain-language paraphrase of spec_A (H6 is the control), H1-H3 mutants of it, H4-H5 mutants of rewrite_B. Write GT to cases/holdout_answers/ and checksums to cases/HOLDOUT_SHA256. Do not read cases/dev*."

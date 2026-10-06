@@ -112,3 +112,31 @@ L-006 The agent tool does not report per-agent token usage to the coordinator, s
 _(source: log/coordinator.md)_
 L-006 correction: the completion notifications do report per-agent tokens, tool uses and duration (worker-scorer: 98,061 tokens, 15 tool uses, 290.9 s). The tokens per draft inside a multi-draft agent run still cannot be split exactly, so per-draft tokens are estimated as agent tokens divided by drafts. L-006 is narrowed to that.
 
+### 2026-10-06T14:19:26Z | worker-facts | result returned  
+_(source: log/worker-facts.md)_
+worker-facts -> coordinator (item I-03). Produced:
+- RUN/facts.json: 105 facts (F01-F33 from spec paragraphs 1-7, H01-H72 from paragraphs 8-19). Fields: id, section, text, spec_sentence (verbatim spec sentence), plus "ambiguity" on 29 facts and "also_in" on H18 (S31 "...including the `showindex` column" restates S43, so it maps to H18 rather than creating a duplicate fact). 17 compound sentences were split because their parts could be wrong independently. Name lists (merged-cell formats H23, unsupported formats H71, pipe/github/asciidoc F27) are one fact each, and the two headergroups examples are H08 and H09.
+- RUN/facts_coverage.md: all 88 spec sentences in order, verbatim, each with its fact IDs; counts at the end (19 paragraphs, 88 sentences, 105 facts, 0 sentences without a fact).
+- RUN/tools/check_facts_coverage.py: stdlib check with 6 parts (schema/IDs, verbatim substrings, sentence coverage, character coverage independent of sentence splitting, F/H paragraph rule, coverage.md consistency). Negative tests run on scratchpad copies (H72 removed; F01 spec_sentence altered) both gave FAIL with exit 1, as expected.
+Check output (python3 -I tools/check_facts_coverage.py):
+    spec: 19 paragraphs, 88 sentences
+    facts: 105 (F=33, H=72); with ambiguity note: 29
+    [3] sentences covered by a spec_sentence: 88/88
+    [4] non-whitespace spec characters covered: 5062/5062
+    [6] coverage.md rows: 88; fact ids listed: 105/105
+    RESULT: PASS (all 6 checks)
+    exit=0
+Method: fact texts were written by hand in a generator script kept in the session scratchpad (not in RUN). The generator copies spec_sentence verbatim from spec_A by sentence number. fixtures/ unchanged (SHA256SUMS all OK). RUN/cases/ not opened. No checking method designed.
+
+### 2026-10-06T14:19:51Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> worker-holdout: "Build holdout cases H1-H6: a fresh plain-language paraphrase of spec_A (H6 is the control), H1-H3 mutants of it, H4-H5 mutants of rewrite_B. Write GT to cases/holdout_answers/ and checksums to cases/HOLDOUT_SHA256. Do not read cases/dev*."
+
+### 2026-10-06T14:19:51Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> worker-dev: "Build dev cases R1-R3 (verbatim spec_A, rewrite_B, rewrite_C) and M1-M5 (rewrite_C with 2-4 planted errors each), plus GT in cases/dev_answers/ and a mutation manifest. Label the real cases' existing issues against facts.json."
+
+### 2026-10-06T14:19:51Z | coordinator | result returned  
+_(source: log/coordinator.md)_
+worker-facts -> coordinator: facts.json has 105 facts (F01-F33, H01-H72) from 88 spec sentences; facts_coverage.md; tools/check_facts_coverage.py gives PASS on 6 checks (coordinator re-ran it: PASS); 29 facts carry ambiguity notes. 102,985 tokens, 323.6 s. Evidence: log/worker-facts.md. The ruler goes to judge-1 for a completeness/faithfulness check.
+
