@@ -54,3 +54,5 @@ L-007 The dev-set baseline is already at the accuracy ceiling (F1 = 1.000 in 3/3
 State saved: STATUS.md (resume point), limitations.md (L-001..L-010), ITEMS.md updated, costs ledger updated. Committing and pushing.
 ### 2026-10-06T14:40:37Z | coordinator | decision
 User asked to close the run. All open items are marked dropped with that reason, REPORT.md is written, and the target is recorded as missed (no new method built).
+### 2026-10-06T15:09:51Z | coordinator | limitation
+L-011 The budget keeper role was never started. It was planned as I-09 for after the baseline and never ran, because the run was paused right after the baseline. The coordinator kept budget/costs.csv itself, but no independent budget check happened at any point. Nobody flagged that about 964k tokens were being spent to measure a step costing about 12k tokens per draft. Root cause: the coordinator scheduled the first budget check after the expensive phases instead of before them. The fault is the coordinator's, not the prompt's.
