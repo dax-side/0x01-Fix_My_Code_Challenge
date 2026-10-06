@@ -3,7 +3,9 @@ worker-kb,worker-kb,1-setup,sonnet,2026-10-06T14:13:49Z,2026-10-06T14:23:41Z,550
 worker-facts,worker-facts,1-setup,inherit,2026-10-06T14:13:49Z,2026-10-06T14:19:51Z,323.6,102985,15,
 worker-scorer,worker-scorer,1-setup,sonnet,2026-10-06T14:13:49Z,2026-10-06T14:19:17Z,290.9,98061,15,
 worker-dev,worker-dev,2-testset,inherit,2026-10-06T14:19:51Z,2026-10-06T14:28:15Z,463.8,139062,17,
-worker-holdout,worker-holdout,2-testset,inherit,2026-10-06T14:19:51Z,,,,,
-worker-base-1,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,,,,,
-worker-base-2,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,,,,,
-worker-base-3,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,,,,,
+worker-holdout,worker-holdout,2-testset,inherit,2026-10-06T14:19:51Z,2026-10-06T14:31:06Z,613.8,162834,25,
+worker-base-1,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,2026-10-06T14:31:52Z,157.4,98380,41,
+worker-base-2,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,2026-10-06T14:31:52Z,149.4,94222,42,
+worker-base-3,worker-base,3-baseline,inherit,2026-10-06T14:28:15Z,2026-10-06T14:31:52Z,158.0,95747,45,
+judge-1a,judge,2-grading,inherit,2026-10-06T14:31:06Z,2026-10-06T14:31:52Z,,,,stopped by coordinator on user request; no output
+judge-1b,judge,2-grading,inherit,2026-10-06T14:31:06Z,2026-10-06T14:31:52Z,,,,stopped by coordinator on user request; no output

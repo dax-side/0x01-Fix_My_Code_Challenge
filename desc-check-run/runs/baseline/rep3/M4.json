@@ -1,0 +1,21 @@
+{
+ "case_id": "M4",
+ "issues": [
+  {
+   "fact_id": "F26",
+   "kind": "contradicted",
+   "evidence": "html and unsafehtml write the footer as a row of td cells inside tfoot, before tbody."
+  },
+  {
+   "fact_id": "H38",
+   "kind": "missing",
+   "evidence": ""
+  },
+  {
+   "kind": "added",
+   "sentence": "The alignment is written as a style attribute on each th cell."
+  }
+ ],
+ "t_start": 1791297034.2489157,
+ "t_end": 1791297041.2509258
+}

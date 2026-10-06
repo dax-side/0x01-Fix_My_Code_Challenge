@@ -1,0 +1,26 @@
+{
+ "case_id": "M3",
+ "issues": [
+  {
+   "fact_id": "F33",
+   "kind": "missing",
+   "evidence": "rst repeats the line with hyphens instead of \"=\" signs."
+  },
+  {
+   "fact_id": "H05",
+   "kind": "contradicted",
+   "evidence": "align can be \"left\", \"center\" or \"right\", and it is \"left\" by default."
+  },
+  {
+   "fact_id": "H70",
+   "kind": "contradicted",
+   "evidence": "latex_booktabs uses \\cmidrule(lr){FIRST-LAST}, and other LaTeX formats use \\cline{FIRST-LAST}, where FIRST and LAST are column numbers starting at 0."
+  },
+  {
+   "kind": "added",
+   "sentence": "In latex_longtable, the footer is also repeated at the bottom of every page."
+  }
+ ],
+ "t_start": 1791297042.0806022,
+ "t_end": 1791297049.942066
+}

@@ -1,0 +1,17 @@
+{
+ "case_id": "M2",
+ "issues": [
+  {
+   "fact_id": "F14",
+   "kind": "contradicted",
+   "evidence": "If there are no rows, then the footer determines the number of columns."
+  },
+  {
+   "fact_id": "H54",
+   "kind": "missing",
+   "evidence": ""
+  }
+ ],
+ "t_start": 1791296995.7532728,
+ "t_end": 1791297005.1650596
+}

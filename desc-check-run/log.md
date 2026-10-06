@@ -228,3 +228,90 @@ Coordinator to worker-base-3: measure the current way (LLM reviewer reads spec_A
 _(source: log/coordinator.md)_
 L-005 resolved: the push to origin/claude/tabulate-writing-patterns-vx5oxh succeeded at this checkpoint, so GitHub access is now working. All earlier local commits are pushed. Checkpoints continue to push to the designated branch only.
 
+### 2026-10-06T14:30:21Z | worker-holdout | result returned  
+_(source: log/worker-holdout.md)_
+worker-holdout -> coordinator (item I-06). Produced 6 drafts in cases/holdout/ (H1-H6), 6 GT files in cases/holdout_answers/ (H1.json-H6.json), cases/holdout_answers/labelling_H6_B.md (per-fact labelling of H6 and rewrite_B, 105 rows each, every evidence quote checked by script as an exact substring of its draft), cases/holdout_answers/manifest.md, and cases/HOLDOUT_SHA256 (14 files, all verify OK).
+Counts only: H6 (control) base labelling = 105/105 facts stated, 0 accidental issues, 5 neutral sentences. rewrite_B base labelling = 105/105 facts stated, 0 issues, 0 neutral sentences, 1 sentence recorded as an unsure call (kept as not-an-issue). Planted errors = 14 (contradicted 6, missing 4, added 4), per case H1=3, H2=3, H3=2, H4=3, H5=3, H6=0; fact-ID issues on F facts = 5, on H facts = 5; added claims 2 footer, 2 headergroups. H1-H3 built from H6, H4-H5 from byte-exact copies of fixtures/rewrite_B.md (sha256 checked before editing). Word-diff of each mutant against its base shows only the planted edits. fixtures/ unchanged (SHA256SUMS all OK).
+Sanity check: GT copied to runs/gt_echo_h/1/; python3 tools/score.py --answers cases/holdout_answers --runs runs/gt_echo_h/1 gave overall TP=14 FP=0 FN=0, F1 = 1.000 (fact 10/0/0, added 4/0/0, kind agreement 10/10), exit 0. Extra check: no neutral sentence matches any other draft sentence or any GT added sentence under the scorer's match rule. runs/gt_echo_h then deleted.
+Not opened: cases/dev, cases/dev_answers, any other agent's labels. Helper scripts are in my session scratchpad only, outside RUN.
+
+### 2026-10-06T14:30:53Z | worker-base-2 | result returned  
+_(source: log/worker-base-2.md)_
+worker-base-2 to coordinator: baseline rep2 done. Outputs in RUN/runs/baseline/rep2/ (_setup.json, M5, R3, M4, M2, R2, M1, R1, M3 .json; all valid JSON, each with t_start/t_end added after the timed window).
+Setup (read spec_A.md + facts.json): 4.223 s.
+Per case (issues found, seconds t_end - t_start), in run order:
+- M5: 3 issues (F05 missing, H23 contradicted, 1 added), 12.632 s
+- R3: 0 issues, 11.222 s
+- M4: 3 issues (F26 contradicted, H38 missing, 1 added), 8.805 s
+- M2: 2 issues (F14 contradicted, H54 missing), 9.412 s
+- R2: 0 issues, 7.374 s
+- M1: 3 issues (F13 contradicted, H20 contradicted, 1 added), 6.995 s
+- R1: 0 issues, 4.522 s
+- M3: 4 issues (F33 missing, H05 contradicted, H70 contradicted, 1 added), 7.861 s
+Total per-case time 68.823 s (mean 8.603 s/draft). Tokens per draft not available to this worker.
+Notes: the window includes the Read tool call, the reviewer's reasoning, and the write of the output file. Timestamps were taken with `date +%s.%N` (epoch seconds, so the same value as `date -u +%s.%N`). Not opened: dev_answers, holdout, kb, other runs, other agents' logs. No compare/diff scripts used. The only script was a helper in the scratchpad that adds t_start/t_end to a JSON file. Unflagged borderline items: the opening summary sentence in R2/R3/M* ("...titled groups of columns above the header") was judged a consistent summary, not an addition. In R2, "where FIRST and LAST are column numbers starting at 1" is attached to the \cline sentence only and was judged a paraphrase of H70.
+
+### 2026-10-06T14:31:06Z | coordinator | result returned  
+_(source: log/coordinator.md)_
+worker-holdout -> coordinator: holdout H1-H6 built (14 planted issues: 6 contradicted, 4 missing, 4 added; 5 on F facts, 5 on H facts). H6 is a fresh paraphrase P with 0 own issues and 5 neutral sentences. rewrite_B was independently labelled with 0 issues. GT-echo gives F1 = 1.000. cases/HOLDOUT_SHA256 verifies (coordinator re-checked: 14/14 OK). Three uncertain labels were reported: the opening summary sentence, an F10 flip leaving F11/F12 inconsistent, and youtrack added to the list labelled H71 contradicted.
+
+### 2026-10-06T14:31:06Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> judge-1a: "Grade the claims in judge/claims_for_judge-1a.md (17 decision-relevant KB claims, scope premises P1-P5, scorer correctness S1) using only the listed evidence. Try to disprove each. Write judge/judge-1a.md."
+
+### 2026-10-06T14:31:06Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> judge-1b: "Grade the claims in judge/claims_for_judge-1b.md (ruler completeness R1, dev GT R2, holdout GT R3, labeller agreement R4, test-set fairness R5) using only the listed evidence. Try to disprove each. Write judge/judge-1b.md."
+
+### 2026-10-06T14:31:10Z | worker-base-1 | result returned  
+_(source: log/worker-base-1.md)_
+worker-base-1 to coordinator: baseline rep1 done (LLM reviewer reading spec_A + facts.json + each draft; no diff/compare scripts; python used only to add t_start/t_end to JSON after each timed window).
+Outputs: RUN/runs/baseline/rep1/{_setup,R1,M1,R2,M2,R3,M3,M4,M5}.json
+Setup (read spec_A.md + facts.json): 7.017 s (t_setup_start 1791296932.011711596, t_setup_end 1791296939.028494441).
+Per case (issues, seconds t_end - t_start):
+- R1: 0 issues, 13.850 s
+- M1: 3 issues (F13 contradicted, H20 contradicted, 1 added), 15.205 s
+- R2: 0 issues, 7.077 s
+- M2: 2 issues (F14 contradicted, H54 missing), 15.945 s
+- R3: 0 issues, 4.930 s
+- M3: 4 issues (F33 missing, H05 contradicted, H70 contradicted, 1 added), 9.742 s
+- M4: 3 issues (F26 contradicted, H38 missing, 1 added), 6.265 s
+- M5: 3 issues (F05 missing, H23 contradicted, 1 added), 6.506 s
+Total 79.519 s over 8 drafts, mean 9.940 s/draft. Tokens per draft: not available to this worker.
+Notes: (1) Timestamps are epoch seconds from date +%s.%N (same value as date -u +%s.%N); stored as JSON floats, so sub-microsecond digits are rounded. (2) The time inside each window is mostly model inference on the draft, which already had spec_A and facts.json in context from setup; the fixed case order means later drafts were reviewed with earlier drafts also in context, which may shorten later windows. I judged each draft against the spec, not against earlier drafts. (3) Framing sentences ("A table often needs a row of totals...", "Some tables need a title over several columns.", "There is more than one way to draw a group title in plain text.") were judged non-behavioural and not flagged. (4) In M5 the merged-cell list omits psql; filed as H23 contradicted (an incomplete list stated as complete). I did not open any answers, manifests, holdout, kb, other runs or other logs.
+
+### 2026-10-06T14:31:12Z | worker-base-3 | limitation  
+_(source: log/worker-base-3.md)_
+Scratchpad helper collision: my JSON-timestamp helper at the shared scratchpad path .../scratchpad/addt.py was overwritten by another agent between my M3 and R2 calls (same name, same behaviour, different print format). R2's t_start/t_end were added by that overwritten copy (output checked: correct values). From M1 on I used a uniquely named helper addt_wb3.py. I took an M1 t_start (1791296972.444513278) before noticing, then discarded it and took a new one immediately before opening M1.md (1791296985.625823371), because the draft had not been opened yet. No case content or verdict was affected. Timestamps came from `date +%s.%N` (epoch seconds, same values as `date -u +%s.%N`).
+
+### 2026-10-06T14:31:12Z | worker-base-3 | result returned  
+_(source: log/worker-base-3.md)_
+worker-base-3 to coordinator: baseline rep3 done. Outputs in RUN/runs/baseline/rep3/ (_setup.json, M3, R2, M1, R3, M5, R1, M4, M2 .json). Each case: one reviewer pass (draft read in full, then judged against spec_A + facts.json), no diff/compare scripts. Python was used only to add t_start/t_end after each timed window.
+Setup (read spec_A.md + facts.json): 3.260 s.
+Per case (order run, t_end - t_start, issue count):
+- M3: 12.989 s, 4 issues (F33 missing; H05 contradicted; H70 contradicted; added "In latex_longtable, the footer is also repeated at the bottom of every page.")
+- R2: 6.582 s, 0 issues
+- M1: 7.477 s, 3 issues (F13 contradicted; H20 contradicted; added "Leading and trailing spaces in titles are removed.")
+- R3: 9.492 s, 0 issues
+- M5: 7.637 s, 3 issues (F05 missing; H23 contradicted (psql dropped); added "Footer cells are never wrapped, even when maxcolwidths is set.")
+- R1: 4.666 s, 0 issues
+- M4: 7.002 s, 3 issues (F26 contradicted; H38 missing; added "The alignment is written as a style attribute on each th cell.")
+- M2: 6.939 s, 2 issues (F14 contradicted; H54 missing)
+Total case time 62.784 s, mean 7.848 s per draft. Total issues 18. Tokens per draft: not available to me.
+
+### 2026-10-06T14:31:52Z | coordinator | limitation  
+_(source: log/coordinator.md)_
+L-007 The dev-set baseline is already at the accuracy ceiling (F1 = 1.000 in 3/3 reps). On this test set a new method can at best tie on accuracy, so any gain must come from time or cost. The dev mutants may also be too easy, since all 3 reps found all 15 planted errors. This is ungraded until judge-1b rules on R5 (test-set fairness).
+
+### 2026-10-06T14:31:52Z | coordinator | decision  
+_(source: log/coordinator.md)_
+User message: "stop for now and save all work". Coordinator stopped judge-1a and judge-1b, which had produced no grades yet, and is saving state. The run is paused after step 3 (baseline measured). Steps 2 (judge grading) and 4-8 have not been done. No findings have been graded, so none can be reported as accepted.
+
+### 2026-10-06T14:31:52Z | coordinator | result returned  
+_(source: log/coordinator.md)_
+worker-base-1/2/3 -> coordinator: the baseline (current way: LLM reviewer reads spec + draft) ran on all 8 dev cases, 3 reps. Coordinator scored them with tools/score.py: F1 = 1.000 in every rep (15 TP, 0 FP, 0 FN). Mean seconds per draft: rep1 9.940, rep2 8.603, rep3 7.848, so the mean of reps is 8.80 s (range 7.85-9.94). Setup (reading spec + facts) took 7.0 / 4.2 / 3.3 s. Agent totals: 98,380 / 94,222 / 95,747 tokens, which is about 12k tokens per draft including setup. Evidence: runs/baseline/score_rep{1,2,3}.json. worker-base-3 reported that parallel agents share the scratchpad and one overwrote its timestamp helper; its verdicts were unaffected (limitations_inbox/worker-base-3.md).
+
+### 2026-10-06T14:32:18Z | coordinator | decision  
+_(source: log/coordinator.md)_
+State saved: STATUS.md (resume point), limitations.md (L-001..L-010), ITEMS.md updated, costs ledger updated. Committing and pushing.
+

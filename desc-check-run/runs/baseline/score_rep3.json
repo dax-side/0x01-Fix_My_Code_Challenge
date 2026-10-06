@@ -1,0 +1,437 @@
+{
+  "answers_dir": "cases/dev_answers",
+  "runs_dir": "runs/baseline/rep3",
+  "cases": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "overall": {
+    "tp": 15,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "by_kind": {
+    "fact": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "added": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "kind_agreement": {
+    "matched": 11,
+    "agree": 11,
+    "share": 1.0
+  },
+  "timing": {
+    "n_timed": 8,
+    "n_cases": 8,
+    "mean_seconds": 7.848029345273972
+  },
+  "missing_outputs": [],
+  "unreadable_outputs": [],
+  "per_case": [
+    {
+      "case_id": "M1",
+      "output": "ok",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [
+          "F13",
+          "H20"
+        ],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "out": "Leading and trailing spaces in titles are removed.",
+            "gt": "Leading and trailing spaces in titles are removed.",
+            "jaccard": 1.0,
+            "contained": true
+          }
+        ],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 2,
+        "agree": 2
+      },
+      "seconds": 7.477401494979858,
+      "notes": []
+    },
+    {
+      "case_id": "M2",
+      "output": "ok",
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [
+          "F14",
+          "H54"
+        ],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 2,
+        "agree": 2
+      },
+      "seconds": 6.939198970794678,
+      "notes": []
+    },
+    {
+      "case_id": "M3",
+      "output": "ok",
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [
+          "F33",
+          "H05",
+          "H70"
+        ],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "out": "In latex_longtable, the footer is also repeated at the bottom of every page.",
+            "gt": "In latex_longtable, the footer is also repeated at the bottom of every page.",
+            "jaccard": 1.0,
+            "contained": true
+          }
+        ],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 3,
+        "agree": 3
+      },
+      "seconds": 12.989484310150146,
+      "notes": []
+    },
+    {
+      "case_id": "M4",
+      "output": "ok",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [
+          "F26",
+          "H38"
+        ],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "out": "The alignment is written as a style attribute on each th cell.",
+            "gt": "The alignment is written as a style attribute on each th cell.",
+            "jaccard": 1.0,
+            "contained": true
+          }
+        ],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 2,
+        "agree": 2
+      },
+      "seconds": 7.002010107040405,
+      "notes": []
+    },
+    {
+      "case_id": "M5",
+      "output": "ok",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [
+          "F05",
+          "H23"
+        ],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "out": "Footer cells are never wrapped, even when maxcolwidths is set.",
+            "gt": "Footer cells are never wrapped, even when maxcolwidths is set.",
+            "jaccard": 1.0,
+            "contained": true
+          }
+        ],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 2,
+        "agree": 2
+      },
+      "seconds": 7.636814832687378,
+      "notes": []
+    },
+    {
+      "case_id": "R1",
+      "output": "ok",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 0,
+        "agree": 0
+      },
+      "seconds": 4.665950536727905,
+      "notes": []
+    },
+    {
+      "case_id": "R2",
+      "output": "ok",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 0,
+        "agree": 0
+      },
+      "seconds": 6.581800699234009,
+      "notes": []
+    },
+    {
+      "case_id": "R3",
+      "output": "ok",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fact": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp_ids": [],
+        "fp_ids": [],
+        "fn_ids": [],
+        "malformed_fp": 0,
+        "kind_disagree": []
+      },
+      "added": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [],
+        "fp_sentences": [],
+        "fn_sentences": [],
+        "ignored_neutral": [],
+        "malformed_fp": 0
+      },
+      "kind_agreement": {
+        "matched": 0,
+        "agree": 0
+      },
+      "seconds": 9.491573810577393,
+      "notes": []
+    }
+  ],
+  "warnings": [
+    "output files with no GT file (not scored): _setup"
+  ]
+}

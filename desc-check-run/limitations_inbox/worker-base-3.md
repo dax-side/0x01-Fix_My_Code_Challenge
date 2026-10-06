@@ -1,0 +1,2 @@
+### 2026-10-06T14:31:12Z | worker-base-3 | limitation
+The shared scratchpad path (.../scratchpad/addt.py) was overwritten by another agent during the baseline runs. Agents running in parallel share one scratchpad, so helper files need unique names. R2's timestamps were written by the other agent's copy (equivalent behaviour, values checked). One M1 t_start was discarded and taken again before the draft was opened. Verdicts not affected. Tokens per draft were not available.
