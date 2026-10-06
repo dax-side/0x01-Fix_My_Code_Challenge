@@ -1,0 +1,10 @@
+row,role,timestamp_utc,what
+2,user,2026-09-30T01:30:26.957Z,user asks for style patterns
+20,assistant,2026-09-30T01:31:01.427Z,assistant delivers style analysis
+27,user,2026-09-30T01:31:34.331Z,user asks for strict rewrite of spec
+30,assistant,2026-09-30T01:32:41.082Z,assistant delivers rewrite B (with lists)
+36,user,2026-09-30T01:33:30.769Z,user: complete style, no lists
+39,assistant,2026-09-30T01:33:59.270Z,assistant delivers rewrite C (no lists)
+43,user,2026-09-30T01:37:15.647Z,user pastes checker FAIL on C
+46,assistant,2026-09-30T01:37:29.746Z,assistant explains detector, declines evasion
+56,user,2026-10-06T14:08:02.739Z,user requests this workflow

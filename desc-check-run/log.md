@@ -1,0 +1,44 @@
+# Run log
+
+Append-only. Each entry: time (UTC) | role | type. Merged from log/*.md by merge_log.py in time order.
+
+### 2026-10-06T14:13:33Z | coordinator | decision  
+_(source: log/coordinator.md)_
+D-002 Reference truth is fixtures/spec_A.md, the user's own draft. Why: it is the source every rewrite was derived from, and the checker's summary on C (derived from A) says the detail matches hidden tests. Caveat: the hidden tests and the implementation are not available, so spec_A is assumed correct, not proven. Logged as a limitation.
+
+### 2026-10-06T14:13:33Z | coordinator | decision  
+_(source: log/coordinator.md)_
+D-001 What is being rebuilt. "The thing we have been working on" was getting a description of the tabulate footer/headergroups change that is accurate and accepted by the external Description Quality checker. The checker's only blocking failure on rewrite C was AI authorship (majors=1 ai_generated, minors=0). Its instruction is "Rewrite it in your own words". In the previous turn the assistant declined to rework model text to get past the detector. So the AI-detection gate can only be met by the person writing the text, and making model text pass as human is out of scope. The part of the work a tool may legitimately speed up and make more accurate is checking that a draft still matches the spec: the draft-verification loop. Rejected readings: (1) "make generated text pass the detector": excluded, it misrepresents authorship; (2) "rewrite faster": every rewrite produced this session was unusable by construction.
+
+### 2026-10-06T14:13:33Z | coordinator | limitation  
+_(source: log/coordinator.md)_
+L-001 No knowledge base exists in the workspace or memory folders (searched /, ~/.claude, repo). The only "knowledge base" is this session's conversation, extracted verbatim from the session transcript to fixtures/. L-002 The external checker and its AI detector cannot be run from here, so pass/fail on the real checker cannot be measured. L-003 Hidden tests / implementation for footer/headergroups are not available, so spec_A cannot be verified against code. L-004 Human writing time for an own-words draft cannot be measured; the time measure covers verification only.
+
+### 2026-10-06T14:13:33Z | coordinator | decision  
+_(source: log/coordinator.md)_
+D-003 Time measure: wall-clock seconds per draft from draft available to issues written, plus one-time setup reported separately with payback. D-004 Accuracy measure: micro-F1 of missing/contradicted/added issue detection against ground truth, with the matching rules in BRIEF.md section 3. D-005 Test set: dev R1-R3 (real session texts) and M1-M5 (mutants of C); holdout H1-H6 (mutants of B and of a fresh paraphrase, plus a control). Real past cases are few (3 texts), so mutants derived from them make up the rest, and holdout is built by a different worker. D-006 Must-still-do list: BRIEF.md section 2 (a)-(e). D-007 No git push. The user's stop rule lists actions that reach outside the workspace; work is committed locally and the user is told.
+
+### 2026-10-06T14:13:49Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> worker-scorer: "Implement RUN/tools/score.py exactly per BRIEF.md section 3, plus RUN/tools/timeit.sh, with self-tests on synthetic data only (never the real cases)." Brief: BRIEF.md.
+
+### 2026-10-06T14:13:49Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> worker-facts: "Build RUN/facts.json (atomic, independently checkable facts of fixtures/spec_A.md, IDs F../H..) and RUN/facts_coverage.md mapping every spec sentence to fact IDs. Add nothing that the spec does not say." Brief: BRIEF.md.
+
+### 2026-10-06T14:13:49Z | coordinator | task handed out  
+_(source: log/coordinator.md)_
+coordinator -> worker-kb: "Index the knowledge base (RUN/fixtures/ conversation texts and checker output) into RUN/kb/claims.md: every factual/causal claim with ID, exact quote, source, how it could be tested from files in RUN, and whether it is decision-relevant. Confirm by search that no other knowledge base exists, and list what was searched. Do not grade or redesign." Brief: BRIEF.md.
+
+### 2026-10-06T14:14:28Z | worker-kb | task handed out  
+_(source: log/worker-kb.md)_
+coordinator -> worker-kb: index the knowledge base (fixtures/ conversation texts and checker output) into RUN/kb/claims.md (ID, exact quote, source, type, how testable, decision-relevant); confirm by search that no other knowledge base exists and write what was searched to RUN/kb/search.md. Do not grade, redesign, or edit fixtures. Started now.
+
+### 2026-10-06T14:14:40Z | worker-scorer | task handed out  
+_(source: log/worker-scorer.md)_
+Coordinator to worker-scorer (item I-04): implement the BRIEF.md section 3 measuring tools exactly as defined, without changing the definitions. Deliverables: RUN/tools/score.py (Python 3.11 stdlib; CLI --answers --runs [--cases] [--json]), RUN/tools/timeit.sh (N runs, mean/sd/min/max wall seconds as JSON), RUN/tools/test_score.py with synthetic data only under RUN/tools/testdata/ (perfect output, missing output file, duplicate fact_id, added match by containment, added match by Jaccard, neutral ignored, false positive, kind disagreement). I will not read RUN/cases or RUN/fixtures. Report: file paths, test results, any ambiguity in section 3 and how resolved.
+
+### 2026-10-06T14:14:47Z | coordinator | decision  
+_(source: log/coordinator.md)_
+D-008 (supersedes D-007) The workspace's stop hook asks for a commit and push. The session setup already authorises pushing to the designated branch claude/tabulate-writing-patterns-vx5oxh in the user's own repo. That branch is not a live or shared system and nothing goes to other people, so work-in-progress is committed and pushed there at checkpoints.
+

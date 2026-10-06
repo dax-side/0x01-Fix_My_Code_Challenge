@@ -1,0 +1,4 @@
+agent_id,role,phase,model,start_utc,end_utc,wall_s,total_tokens,tool_uses,notes
+worker-kb,worker-kb,1-setup,,2026-10-06T14:13:49Z,,,,,
+worker-facts,worker-facts,1-setup,,2026-10-06T14:13:49Z,,,,,
+worker-scorer,worker-scorer,1-setup,,2026-10-06T14:13:49Z,,,,,

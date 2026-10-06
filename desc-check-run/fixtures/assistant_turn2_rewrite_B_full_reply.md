@@ -1,0 +1,77 @@
+Here's the rewrite. It keeps every rule and error case from your draft. Names appear as plain text and string values are in quotes, as in the README.
+
+---
+
+tabulate takes two new optional arguments named footer and headergroups. footer adds a row of cells below the table data, and headergroups adds titled groups of columns above the header. By default, both are None. Passing None is the same as leaving the argument out. Existing arguments keep their current positions and defaults.
+
+If the table has rows, then headers beyond the longest row are cut off from the end.
+
+To add a row below the table data, pass footer=cells, where cells is a list or another iterable of cells. If footer is a string, a bytes value or not iterable, then TypeError is raised. If the footer has fewer cells than the table has columns, then empty cells are added on the left. This is the same padding used for headers, and it lets the footer leave out the showindex column. If the footer has more cells than the table has columns, then ValueError is raised.
+
+If there are no rows and no headers, then the footer determines the number of columns. A None footer cell is displayed as empty. Footer cells do not change the type of their columns. In numeric columns, a footer number uses intfmt if both the number and the column are integers. Otherwise it uses floatfmt. The same rules apply to numbers wrapped in ANSI colour codes (the codes are kept around the formatted number). Other footer values, including True and False, are displayed as text.
+
+Footer cells are included when column widths are calculated. They use the same alignment as the table data, so they can change the alignment of the data.
+
+html and unsafehtml write the footer as a row of td cells inside tfoot, after tbody. pipe, github and asciidoc write the footer as another data row. Other formats, including a caller-created TableFormat, draw the footer like their header row. This also applies when there are no headers or rows.
+
+Formats that have a line below the header repeat that line immediately above the footer. latex_longtable repeats \hline without \endhead. rst repeats the line with hyphens instead of "=" signs, and writes an empty first footer cell as "..".
+
+The optional argument named headergroups defines one or more levels of column groups. A group is a list or tuple of (title, span) or (title, span, align). The span covers adjacent columns, including the showindex column. align can be "left", "center" or "right". By default, align is "center". Titles are converted with str(). ANSI colour codes in titles do not count toward their width.
+
+One level is written as a list of groups:
+
+```python
+[("A", 2), ("B", 2)]
+```
+
+Several levels are written as a list of levels:
+
+```python
+[[("All", 4)], [("A", 2), ("B", 2)]]
+```
+
+If headergroups is non-empty and every item is a list or tuple whose entries are all lists or tuples, then it is treated as several levels. Otherwise it is treated as one level. Empty levels are allowed.
+
+If headergroups is a string, a bytes value or not iterable, then TypeError is raised. TypeError is also raised if a group is not a list or tuple of two or three items, or if align is not a string. ValueError is raised if a span is a boolean or not a positive integer, or if align is not "left", "center" or "right".
+
+Spans include the showindex column. If the spans of a level cover more columns than are available, then ValueError is raised. If they cover fewer columns, then an untitled group is added over the first columns. Group boundaries in one level must also be boundaries in the level below. An empty level is treated as one untitled group.
+
+The merged-cell formats are:
+
+* simple
+* plain
+* psql
+* pretty
+* all grid and outline formats
+
+In these formats, each level is drawn above the normal header. A title is placed in one merged cell covering its group's columns and separators. Titles are padded and aligned according to align.
+
+The top line breaks only at boundaries from the top level. simple draws its top and bottom lines even without headers. The level line is the format's line between rows. If a format has no such line, then it uses its line below the header instead. Between two levels, the line breaks at the boundaries of the lower level. Under the last level, it breaks at every column. If a title and its cell padding are wider than the merged cell, then the group's last column is widened. The bottom level is widened first. Other formats, except rst, do not widen columns for titles.
+
+Titles can contain "\n", "\r" or "\r\n". A "\r\n" sequence counts as one line break. In merged-cell formats, the level row has the height of its tallest title. Shorter titles get empty lines at the bottom. Each line is aligned separately, and the widest line determines the required width. rst raises ValueError if a title contains more than one line. html and LaTeX keep title line breaks.
+
+rst builds its level rows like the merged-cell formats, but its top line breaks at every column. The line after a level is made of hyphens and breaks at that level's group boundaries. rst always left-aligns titles, regardless of align. An empty first title is written as "..".
+
+html and unsafehtml write each level as a tr of th cells. The cells use the group's span and alignment. A one-column group has no colspan attribute. If a header row exists, then the level rows are inside the thead. Otherwise the level rows form their own thead before the tbody. html escapes titles, and unsafehtml does not.
+
+LaTeX formats write each level after the opening lines. Cells are separated by "&", and each row ends with a space followed by two backslashes. A group covering several columns uses \multicolumn{SPAN}{A}{TITLE}, where A is "l", "c" or "r". A one-column group uses its title directly. Titles use the same escaping as headers, except in latex_raw.
+
+A level that contains titled groups is followed by one rule for each titled group. latex_booktabs uses \cmidrule(lr){FIRST-LAST}. Other LaTeX formats use \cline{FIRST-LAST}, where FIRST and LAST are column numbers starting at 1.
+
+headergroups is not supported by:
+
+* asciidoc, github, jira, mediawiki, moinmoin
+* orgtbl, pipe, presto, textile, tsv
+* a caller-created TableFormat
+
+If headergroups is passed with any of these formats, then ValueError is raised.
+
+---
+
+**Where I departed from the patterns:**
+
+- **No positions for the new arguments.** The README says "the second/third optional argument", but your draft doesn't give positions for footer and headergroups, so I wrote "the optional argument named …". If you know the positions, put in the ordinals.
+- **No invented output.** The README ends paragraphs with a colon and then shows a rendered table. I only did that where your text already had examples (the two headergroups values), and didn't make up table output.
+- **One LaTeX literal is written out in words.** The row ending ` \\` is written as "a space followed by two backslashes", because in Markdown `\\` displays as a single backslash.
+- **The README's typos aren't copied.** That means no double spaces after full stops, no "Github" spelling and no broken link syntax.
+- **I added two sentences.** Your draft had nothing that fit two of the README patterns: the opening sentence covering the scope, and the "To [goal], pass …" recipe. Both new sentences only repeat facts that appear later in the text.

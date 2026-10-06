@@ -1,0 +1,2 @@
+### 2026-10-06T14:14:28Z | worker-kb | task handed out
+coordinator -> worker-kb: index the knowledge base (fixtures/ conversation texts and checker output) into RUN/kb/claims.md (ID, exact quote, source, type, how testable, decision-relevant); confirm by search that no other knowledge base exists and write what was searched to RUN/kb/search.md. Do not grade, redesign, or edit fixtures. Started now.

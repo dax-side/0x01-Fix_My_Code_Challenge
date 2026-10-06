@@ -1,0 +1,55 @@
+how is this flagged ai even when we  mirror the one that's not flagged ai: 
+
+
+Description Quality
+Description Quality
+Verdict
+FAIL
+Summary
+The description is direct and unusually detailed, but that detail is warranted: the hidden tests pin down the API, validation, and format-specific rendering behavior throughout.
+Completed in 18.3s
+Raw Output
+
+```
+{
+  "completed": true,
+  "evaluation": {
+    "aiDetection": {
+      "blocking": true,
+      "fractionAi": 0.9393402934074402,
+      "fractionAiAssisted": 0,
+      "mode": "blocking",
+      "prediction": "AI",
+      "threshold": 0.5,
+      "wordCount": 1081
+    },
+    "comments": [
+      {
+        "category": "ai_generated",
+        "presentationOnly": false,
+        "quote": "The tabulate function has two more optional arguments, footer and headergroups, which add a row of cells below the table data and titled groups of columns above the header.",
+        "severity": "major",
+        "suggestion": "This description was detected as AI-generated. Rewrite it in your own words.",
+        "testPatchCheck": {
+          "foundInTestPatch": false,
+          "reasoning": "Constructed from an AI-detection window.",
+          "searchedFor": ""
+        }
+      }
+    ],
+    "summary": "The description is direct and unusually detailed, but that detail is warranted: the hidden tests pin down the API, validation, and format-specific rendering behavior throughout.",
+    "verdict": "FAIL",
+    "verdictBasis": {
+      "aiDetectionBlocking": true,
+      "dropped": [],
+      "majors": 1,
+      "minors": 0
+    }
+  },
+  "executionTimeSeconds": 18.265326,
+  "summary": "The description is direct and unusually detailed, but that detail is warranted: the hidden tests pin down the API, validation, and format-specific rendering behavior throughout.",
+  "verdict": "FAIL"
+}
+```
+
+Close
