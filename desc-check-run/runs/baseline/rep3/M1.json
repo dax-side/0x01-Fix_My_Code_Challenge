@@ -1,0 +1,21 @@
+{
+ "case_id": "M1",
+ "issues": [
+  {
+   "fact_id": "F13",
+   "kind": "contradicted",
+   "evidence": "If the footer has more cells than the table has columns, then TypeError is raised."
+  },
+  {
+   "fact_id": "H20",
+   "kind": "contradicted",
+   "evidence": "If they cover fewer columns, then an untitled group is added over the last columns."
+  },
+  {
+   "kind": "added",
+   "sentence": "Leading and trailing spaces in titles are removed."
+  }
+ ],
+ "t_start": 1791296985.6258233,
+ "t_end": 1791296993.1032248
+}

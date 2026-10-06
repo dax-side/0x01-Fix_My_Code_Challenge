@@ -212,3 +212,19 @@ coordinator -> worker-base-1, worker-base-2, worker-base-3: "Measure the CURRENT
 _(source: log/coordinator.md)_
 worker-dev -> coordinator: dev set built. R1-R3 are byte copies (cmp-verified). M1-M5 carry 15 planted issues (7 contradicted, 4 missing, 4 added; 7 footer, 8 headergroups). Real cases R2 and R3 were labelled with 0 real issues: both state all 105 facts; R3 has 3 neutral framing sentences. The GT-echo scorer check gives F1 = 1.000. 5 uncertain labels were reported (opening summary sentence treated as supported, among others). Evidence: cases/dev_labelling_R2_R3.md, cases/dev_manifest.md, log/worker-dev.md. Consequence: dev recall rests only on the mutants, and R1-R3 test false positives only. Claim K36 ("keeps every rule") is supported by this labelling, but it is a worker's label until judge-1 grades it.
 
+### 2026-10-06T14:28:48Z | worker-base-1 | task handed out  
+_(source: log/worker-base-1.md)_
+Coordinator to worker-base-1: measure the CURRENT way (LLM reviewer reads spec_A + facts.json + draft, reports missing/contradicted/added). Rep 1. Cases in order R1, M1, R2, M2, R3, M3, M4, M5. Outputs to RUN/runs/baseline/rep1/<ID>.json plus _setup.json; timing via date +%s.%N around each draft. Allowed reads: BRIEF.md, fixtures/spec_A.md, facts.json, cases/dev/<ID>.md for those IDs only.
+
+### 2026-10-06T14:28:48Z | worker-base-2 | task handed out  
+_(source: log/worker-base-2.md)_
+Coordinator to worker-base-2: measure the CURRENT way (LLM reviewer reads spec_A + facts.json + draft and reports every missing/contradicted/added issue) for dev cases in order M5, R3, M4, M2, R2, M1, R1, M3. Timed setup (_setup.json) and per-case t_start/t_end. Outputs to RUN/runs/baseline/rep2/. No diff/compare scripts; read and judge only.
+
+### 2026-10-06T14:28:51Z | worker-base-3 | task handed out  
+_(source: log/worker-base-3.md)_
+Coordinator to worker-base-3: measure the current way (LLM reviewer reads spec_A + facts.json + draft and reports every missing/contradicted/added issue). Timed setup, then cases in order M3, R2, M1, R3, M5, R1, M4, M2. Outputs to RUN/runs/baseline/rep3/.
+
+### 2026-10-06T14:28:56Z | coordinator | decision  
+_(source: log/coordinator.md)_
+L-005 resolved: the push to origin/claude/tabulate-writing-patterns-vx5oxh succeeded at this checkpoint, so GitHub access is now working. All earlier local commits are pushed. Checkpoints continue to push to the designated branch only.
+

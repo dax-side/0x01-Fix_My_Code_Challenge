@@ -1,0 +1,12 @@
+{
+ "case_id": "H6",
+ "base": "paraphrase_P",
+ "issues": [],
+ "neutral_sentences": [
+  "I'll go through `footer` first and then `headergroups`.",
+  "For reference, these are the error cases.",
+  "The rest of this description goes through rendering, one family of formats at a time.",
+  "One last note on headers.",
+  "Happy to split this into two PRs if that is easier to review."
+ ]
+}

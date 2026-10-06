@@ -1,0 +1,28 @@
+{
+ "case_id": "H1",
+ "base": "paraphrase_P",
+ "issues": [
+  {
+   "fact_id": "F13",
+   "kind": "contradicted",
+   "note": "swapped exception type: a footer with more cells than columns raises ValueError, draft says TypeError"
+  },
+  {
+   "fact_id": "H20",
+   "kind": "missing",
+   "note": "deleted sentence: untitled group added over the first columns when a level's spans cover fewer columns"
+  },
+  {
+   "kind": "added",
+   "sentence": "`maxcolwidths` applies to footer cells too, so a long footer value is wrapped like any other cell.",
+   "note": "invented behaviour: spec says nothing about maxcolwidths or wrapping footer cells"
+  }
+ ],
+ "neutral_sentences": [
+  "I'll go through `footer` first and then `headergroups`.",
+  "For reference, these are the error cases.",
+  "The rest of this description goes through rendering, one family of formats at a time.",
+  "One last note on headers.",
+  "Happy to split this into two PRs if that is easier to review."
+ ]
+}

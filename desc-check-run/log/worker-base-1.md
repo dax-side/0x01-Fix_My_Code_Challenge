@@ -1,0 +1,2 @@
+### 2026-10-06T14:28:48Z | worker-base-1 | task handed out
+Coordinator to worker-base-1: measure the CURRENT way (LLM reviewer reads spec_A + facts.json + draft, reports missing/contradicted/added). Rep 1. Cases in order R1, M1, R2, M2, R3, M3, M4, M5. Outputs to RUN/runs/baseline/rep1/<ID>.json plus _setup.json; timing via date +%s.%N around each draft. Allowed reads: BRIEF.md, fixtures/spec_A.md, facts.json, cases/dev/<ID>.md for those IDs only.

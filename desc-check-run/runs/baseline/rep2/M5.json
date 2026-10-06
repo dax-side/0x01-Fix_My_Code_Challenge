@@ -1,0 +1,21 @@
+{
+ "case_id": "M5",
+ "issues": [
+  {
+   "fact_id": "F05",
+   "kind": "missing",
+   "evidence": "Existing arguments keep their current positions."
+  },
+  {
+   "fact_id": "H23",
+   "kind": "contradicted",
+   "evidence": "The merged-cell formats are simple, plain, pretty, and all grid and outline formats."
+  },
+  {
+   "kind": "added",
+   "sentence": "Footer cells are never wrapped, even when maxcolwidths is set."
+  }
+ ],
+ "t_start": 1791296944.0303135,
+ "t_end": 1791296956.6626902
+}

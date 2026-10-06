@@ -1,0 +1,2 @@
+### 2026-10-06T14:28:48Z | worker-base-2 | task handed out
+Coordinator to worker-base-2: measure the CURRENT way (LLM reviewer reads spec_A + facts.json + draft and reports every missing/contradicted/added issue) for dev cases in order M5, R3, M4, M2, R2, M1, R1, M3. Timed setup (_setup.json) and per-case t_start/t_end. Outputs to RUN/runs/baseline/rep2/. No diff/compare scripts; read and judge only.

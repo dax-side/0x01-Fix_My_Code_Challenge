@@ -1,0 +1,22 @@
+{
+ "case_id": "H5",
+ "base": "rewrite_B",
+ "issues": [
+  {
+   "fact_id": "H71",
+   "kind": "contradicted",
+   "note": "list gains a name: youtrack added to the unsupported-format list"
+  },
+  {
+   "fact_id": "F33",
+   "kind": "missing",
+   "note": "deleted clause: an empty first footer cell in rst is written as '..'"
+  },
+  {
+   "kind": "added",
+   "sentence": "Footer cells can also contain line breaks, and the footer row then takes the height of its tallest cell.",
+   "note": "invented behaviour: spec says nothing about multi-line footer cells"
+  }
+ ],
+ "neutral_sentences": []
+}

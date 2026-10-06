@@ -1,0 +1,28 @@
+{
+ "case_id": "H2",
+ "base": "paraphrase_P",
+ "issues": [
+  {
+   "fact_id": "H05",
+   "kind": "contradicted",
+   "note": "wrong default: align defaults to center, draft says left"
+  },
+  {
+   "fact_id": "F29",
+   "kind": "missing",
+   "note": "deleted sentence: footer drawn like the header row also when there are no headers or rows"
+  },
+  {
+   "kind": "added",
+   "sentence": "Those `th` cells also get a `scope=\"colgroup\"` attribute.",
+   "note": "invented behaviour: spec says nothing about a scope attribute"
+  }
+ ],
+ "neutral_sentences": [
+  "I'll go through `footer` first and then `headergroups`.",
+  "For reference, these are the error cases.",
+  "The rest of this description goes through rendering, one family of formats at a time.",
+  "One last note on headers.",
+  "Happy to split this into two PRs if that is easier to review."
+ ]
+}
