@@ -1,0 +1,21 @@
+{
+  "case_id": "M2",
+  "base": "rewrite_C",
+  "issues": [
+    {
+      "fact_id": "F14",
+      "kind": "contradicted",
+      "note": "condition broadened: spec needs no rows AND no headers; draft says no rows is enough"
+    },
+    {
+      "fact_id": "H54",
+      "kind": "missing",
+      "note": "sentence deleted: html/unsafehtml one-column group has no colspan attribute"
+    }
+  ],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}

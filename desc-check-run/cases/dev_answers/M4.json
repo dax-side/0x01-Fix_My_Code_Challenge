@@ -1,0 +1,26 @@
+{
+  "case_id": "M4",
+  "base": "rewrite_C",
+  "issues": [
+    {
+      "fact_id": "F26",
+      "kind": "contradicted",
+      "note": "placement moved: tfoot comes after tbody, draft says before"
+    },
+    {
+      "fact_id": "H38",
+      "kind": "missing",
+      "note": "clause deleted: a \"\\r\\n\" sequence counts as one line break"
+    },
+    {
+      "kind": "added",
+      "sentence": "The alignment is written as a style attribute on each th cell.",
+      "note": "spec says the cells use the group's alignment but not how it is written in HTML"
+    }
+  ],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "case_id": "M1",
+  "base": "rewrite_C",
+  "issues": [
+    {
+      "fact_id": "F13",
+      "kind": "contradicted",
+      "note": "exception type swapped: a footer longer than the column count raises ValueError, draft says TypeError"
+    },
+    {
+      "fact_id": "H20",
+      "kind": "contradicted",
+      "note": "side flipped: the untitled group goes over the first columns, draft says the last columns"
+    },
+    {
+      "kind": "added",
+      "sentence": "Leading and trailing spaces in titles are removed.",
+      "note": "spec says titles are converted with str(); it says nothing about stripping spaces"
+    }
+  ],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}

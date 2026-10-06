@@ -1,0 +1,10 @@
+{
+  "case_id": "R3",
+  "base": "rewrite_C",
+  "issues": [],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "case_id": "M5",
+  "base": "rewrite_C",
+  "issues": [
+    {
+      "fact_id": "H23",
+      "kind": "contradicted",
+      "note": "format dropped from list: psql is a merged-cell format, the draft's list leaves it out"
+    },
+    {
+      "fact_id": "F05",
+      "kind": "missing",
+      "note": "clause deleted: existing arguments keep their current defaults"
+    },
+    {
+      "kind": "added",
+      "sentence": "Footer cells are never wrapped, even when maxcolwidths is set.",
+      "note": "spec says nothing about wrapping footer cells or about maxcolwidths"
+    }
+  ],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}

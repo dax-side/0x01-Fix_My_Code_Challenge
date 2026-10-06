@@ -1,0 +1,31 @@
+{
+  "case_id": "M3",
+  "base": "rewrite_C",
+  "issues": [
+    {
+      "fact_id": "H05",
+      "kind": "contradicted",
+      "note": "wrong default: align defaults to \"center\", draft says \"left\""
+    },
+    {
+      "fact_id": "H70",
+      "kind": "contradicted",
+      "note": "off by one: column numbers in \\cmidrule/\\cline start at 1, draft says 0"
+    },
+    {
+      "fact_id": "F33",
+      "kind": "missing",
+      "note": "clause deleted: an empty first footer cell in rst is written as \"..\""
+    },
+    {
+      "kind": "added",
+      "sentence": "In latex_longtable, the footer is also repeated at the bottom of every page.",
+      "note": "spec only says the repeated line is \\hline without \\endhead; nothing about repeating the footer on every page"
+    }
+  ],
+  "neutral_sentences": [
+    "A table often needs a row of totals or notes below its data.",
+    "Some tables need a title over several columns.",
+    "There is more than one way to draw a group title in plain text."
+  ]
+}
