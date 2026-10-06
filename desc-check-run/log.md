@@ -315,3 +315,7 @@ worker-base-1/2/3 -> coordinator: the baseline (current way: LLM reviewer reads 
 _(source: log/coordinator.md)_
 State saved: STATUS.md (resume point), limitations.md (L-001..L-010), ITEMS.md updated, costs ledger updated. Committing and pushing.
 
+### 2026-10-06T14:40:37Z | coordinator | decision  
+_(source: log/coordinator.md)_
+User asked to close the run. All open items are marked dropped with that reason, REPORT.md is written, and the target is recorded as missed (no new method built).
+

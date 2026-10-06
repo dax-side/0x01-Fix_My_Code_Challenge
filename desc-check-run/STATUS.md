@@ -1,4 +1,4 @@
-# Run status: PAUSED (user asked to stop and save)
+# Run status: CLOSED (user asked to close and report; see REPORT.md)
 
 Paused at the end of step 3 of 8. Everything is committed on branch `claude/tabulate-writing-patterns-vx5oxh`.
 

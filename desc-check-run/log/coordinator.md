@@ -52,3 +52,5 @@ User message: "stop for now and save all work". Coordinator stopped judge-1a and
 L-007 The dev-set baseline is already at the accuracy ceiling (F1 = 1.000 in 3/3 reps). On this test set a new method can at best tie on accuracy, so any gain must come from time or cost. The dev mutants may also be too easy, since all 3 reps found all 15 planted errors. This is ungraded until judge-1b rules on R5 (test-set fairness).
 ### 2026-10-06T14:32:18Z | coordinator | decision
 State saved: STATUS.md (resume point), limitations.md (L-001..L-010), ITEMS.md updated, costs ledger updated. Committing and pushing.
+### 2026-10-06T14:40:37Z | coordinator | decision
+User asked to close the run. All open items are marked dropped with that reason, REPORT.md is written, and the target is recorded as missed (no new method built).
