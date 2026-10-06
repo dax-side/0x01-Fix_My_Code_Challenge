@@ -140,3 +140,27 @@ coordinator -> worker-dev: "Build dev cases R1-R3 (verbatim spec_A, rewrite_B, r
 _(source: log/coordinator.md)_
 worker-facts -> coordinator: facts.json has 105 facts (F01-F33, H01-H72) from 88 spec sentences; facts_coverage.md; tools/check_facts_coverage.py gives PASS on 6 checks (coordinator re-ran it: PASS); 29 facts carry ambiguity notes. 102,985 tokens, 323.6 s. Evidence: log/worker-facts.md. The ruler goes to judge-1 for a completeness/faithfulness check.
 
+### 2026-10-06T14:20:36Z | worker-dev | task handed out  
+_(source: log/worker-dev.md)_
+coordinator -> worker-dev (item I-05): build the dev test set and its GT. (1) Copy R1=fixtures/spec_A.md, R2=fixtures/rewrite_B.md, R3=fixtures/rewrite_C.md byte for byte into cases/dev/. (2) Label R2 and R3 against all 105 facts of facts.json (stated / missing / contradicted), plus every unsupported behavioural sentence (added) and non-behavioural framing sentences (neutral_sentences); R1 GT has no issues. Per-fact labelling evidence goes to cases/dev_labelling_R2_R3.md. (3) Build M1-M5 from byte-exact copies of rewrite_C with 2-4 planted errors each, 15 total (>=6 contradicted, >=4 missing, >=3 added), spread over F and H facts; GT = R3 GT adjusted + planted; manifest in cases/dev_manifest.md. (4) Sanity-check score.py on GT echo (must be F1=1.0), paste output here, delete runs/gt_echo. Will not open cases/holdout or cases/holdout_answers and will not design or run any other checking method. Read BRIEF.md in full.
+
+### 2026-10-06T14:20:42Z | worker-holdout | task handed out  
+_(source: log/worker-holdout.md)_
+coordinator -> worker-holdout (item I-06): build the held-back test set H1-H6 and its GT. H6 = fresh own-words paraphrase P of spec_A (unmodified control, labelled honestly fact by fact against facts.json). rewrite_B labelled fact by fact by me (no other agent's labels; cases/dev and cases/dev_answers not opened). H1-H3 = copies of P, H4-H5 = byte-exact copies of rewrite_B, with 2-4 planted errors each, 14 planted in total (>=5 contradicted, >=4 missing, >=3 added, spread over F and H facts). Outputs: cases/holdout/H1-H6.md, cases/holdout_answers/H1-H6.json, labelling_H6_B.md, manifest.md; GT echo sanity check with tools/score.py (must be F1 = 1.0, then delete runs/gt_echo_h); checksums in cases/HOLDOUT_SHA256. This log holds counts only, no case content. Read BRIEF.md in full, facts.json (105 facts), fixtures/spec_A.md, fixtures/rewrite_B.md.
+
+### 2026-10-06T14:23:11Z | worker-kb | result returned  
+_(source: log/worker-kb.md)_
+worker-kb -> coordinator: knowledge base indexed. Wrote kb/claims.md (80 claims, K01-K80: K01-K66 from fixtures/assistant_*.md, K67-K79 from fixtures/checker_*, K80 one user premise; 17 decision-relevant: K36, K39, K42, K43, K46, K61, K62, K63, K65, K66, K67, K68, K71, K73, K75, K76, K77; tension tags T1-T5 and one inference gap GAP; cross-reference notes N1-N5 on how BRIEF.md describes the fixtures). Wrote kb/search.md: searched the workspace outside desc-check-run and /root/.claude (excluding the jsonl transcripts, projects/ not opened); no other knowledge base found (no CLAUDE.md, memory files or notes on tabulate, footers, headergroups, description quality or AI detection; all term hits were unrelated web-UI footers or skill-file prose). Extra: a pyright typeshed stub for tabulate 0.9.* exists on the machine and has no footer or headergroups argument; the tabulate package is not installed. No claim graded, no design proposed, no fixture edited.
+
+### 2026-10-06T14:23:11Z | worker-kb | limitation  
+_(source: log/worker-kb.md)_
+Not done: (1) no claim was tested or graded (by instruction); (2) the .jsonl transcripts were not opened, so the extraction of fixtures from the transcript was not re-checked; (3) no content search over all of / (only a name-only lookup); (4) claims inside rewrite_B.md / rewrite_C.md about software behaviour are not listed one by one, they belong to facts.json (worker-facts); (5) the style claims K01-K35 can only be tested on readme_excerpt.md, the full README is not in RUN. Evidence: kb/claims.md ("Not done" section), kb/search.md.
+
+### 2026-10-06T14:23:41Z | coordinator | result returned  
+_(source: log/coordinator.md)_
+worker-kb -> coordinator: kb/claims.md has 80 claims (K01-K80), 17 of them decision-relevant (K36, K39, K42, K43, K46, K61, K62, K63, K65, K66, K67, K68, K71, K73, K75, K76, K77), 5 tensions (T1-T5) and 1 gap. kb/search.md: no other knowledge base exists; tabulate is not installed, and the only tabulate material is a typeshed stub for 0.9 with no footer/headergroups. Notes N1-N5 found inaccuracies in the coordinator's own brief.
+
+### 2026-10-06T14:23:41Z | coordinator | decision  
+_(source: log/coordinator.md)_
+Coordinator accepts N1-N5 as corrections to its own earlier claims and appends errata E1-E5 to BRIEF.md (the original text is kept). None of them changes what is rebuilt. E3/E4 weaken D-002: spec_A is the reference by the user's authorship, not by checker confirmation. Logged as part of L-003. The 17 decision-relevant claims go to judge-1 after the test set is built.
+

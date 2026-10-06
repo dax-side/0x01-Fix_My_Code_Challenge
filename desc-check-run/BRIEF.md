@@ -78,3 +78,11 @@ Get the time with `date -u +%FT%TZ`. Log at least when you start (restating your
 ## 7. Roles
 
 The coordinator assigns work and owns `RUN/ITEMS.md` (master list) and `RUN/log.md`. The planner designs. The budget keeper tracks cost. Workers do one narrow job each and do not redesign. The judge grades claims using only the claim and its evidence, and its grade is final. No one grades their own work.
+
+## Errata (appended after worker-kb's index; the text above is left as it was)
+
+- E1. Section 1 says the assistant asserted "each time" that the rewrite kept every rule. That is wrong: only turn 2 (rewrite B) asserted it. Turn 3 (C) asserted only "Every paragraph follows the README patterns."
+- E2. Section 1 says "three model-written versions". There were two rewrites (B and C) plus one style analysis.
+- E3. D-002 paraphrased the checker as saying the detail "matches hidden tests". Its words are "detail is warranted: the hidden tests pin down the API, validation, and format-specific rendering behavior". That is a statement about level of detail, not a confirmed fact-by-fact check.
+- E4. Section 1 says the checker "reported no fact-level findings". More precisely, nothing in its output shows that a fact-level check ran (its one comment has searchedFor: ""). Its silence is not evidence that the content is accurate.
+- E5. L-001's search of "/" was a name-only search to depth 4, not a content search.
