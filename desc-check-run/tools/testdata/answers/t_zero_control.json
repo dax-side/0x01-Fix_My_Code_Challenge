@@ -1,0 +1,7 @@
+{
+  "_comment": "no GT issues, empty output: P=R=F1=1.0 by the zero-division rule",
+  "case_id": "t_zero_control",
+  "base": "synthetic",
+  "issues": [],
+  "neutral_sentences": []
+}

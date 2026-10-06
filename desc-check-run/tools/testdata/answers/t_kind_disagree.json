@@ -1,0 +1,16 @@
+{
+  "_comment": "F09 reported as contradicted but GT says missing: still TP (kind ignored for matching), kind agreement 1/2",
+  "case_id": "t_kind_disagree",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F09",
+      "kind": "missing"
+    },
+    {
+      "fact_id": "F10",
+      "kind": "contradicted"
+    }
+  ],
+  "neutral_sentences": []
+}

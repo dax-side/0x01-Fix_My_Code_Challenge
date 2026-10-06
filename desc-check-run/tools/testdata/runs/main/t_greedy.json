@@ -1,0 +1,13 @@
+{
+  "case_id": "t_greedy",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "red green blue yellow purple"
+    },
+    {
+      "kind": "added",
+      "sentence": "red green blue yellow orange pink"
+    }
+  ]
+}

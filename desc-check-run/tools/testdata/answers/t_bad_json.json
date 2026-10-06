@@ -1,0 +1,16 @@
+{
+  "_comment": "run file is not valid JSON: treated like a missing output (all GT FN)",
+  "case_id": "t_bad_json",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F12",
+      "kind": "missing"
+    },
+    {
+      "kind": "added",
+      "sentence": "Something is added here"
+    }
+  ],
+  "neutral_sentences": []
+}

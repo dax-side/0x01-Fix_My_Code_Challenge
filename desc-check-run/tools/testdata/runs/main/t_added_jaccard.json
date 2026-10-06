@@ -1,0 +1,9 @@
+{
+  "case_id": "t_added_jaccard",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The renderer pads each cell with two spaces before the border"
+    }
+  ]
+}

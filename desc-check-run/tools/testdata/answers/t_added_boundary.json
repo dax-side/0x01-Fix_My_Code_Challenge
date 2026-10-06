@@ -1,0 +1,16 @@
+{
+  "_comment": "Jaccard exactly 3/5 = 0.6 matches; 3/6 = 0.5 does not",
+  "case_id": "t_added_boundary",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "alpha beta gamma delta epsilon"
+    },
+    {
+      "kind": "added",
+      "sentence": "one two three four five"
+    }
+  ],
+  "neutral_sentences": []
+}

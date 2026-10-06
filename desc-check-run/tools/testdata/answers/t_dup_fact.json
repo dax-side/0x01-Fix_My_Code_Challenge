@@ -1,0 +1,12 @@
+{
+  "_comment": "output repeats F05 (first as missing, then as contradicted): counts once, first kind used",
+  "case_id": "t_dup_fact",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F05",
+      "kind": "missing"
+    }
+  ],
+  "neutral_sentences": []
+}

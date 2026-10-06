@@ -1,0 +1,13 @@
+{
+  "case_id": "t_dup_added",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The footer row is bold"
+    },
+    {
+      "kind": "added",
+      "sentence": "the footer   row is bold."
+    }
+  ]
+}

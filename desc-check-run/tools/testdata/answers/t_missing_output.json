@@ -1,0 +1,20 @@
+{
+  "_comment": "no run file exists: all 3 GT issues are FN",
+  "case_id": "t_missing_output",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F03",
+      "kind": "missing"
+    },
+    {
+      "fact_id": "F04",
+      "kind": "contradicted"
+    },
+    {
+      "kind": "added",
+      "sentence": "The cache is cleared after each call."
+    }
+  ],
+  "neutral_sentences": []
+}

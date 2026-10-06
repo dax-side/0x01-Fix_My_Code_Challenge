@@ -1,0 +1,9 @@
+{
+  "case_id": "t_zero_gt_flag",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The widget doubles every value."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "GT sentence ends with a period, output continues without it: not contained (punctuation is literal), Jaccard 6/12 = 0.5 -> no match",
+  "case_id": "t_punct_literal",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "Alpha beta gamma delta epsilon zeta."
+    }
+  ],
+  "neutral_sentences": []
+}

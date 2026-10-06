@@ -1,0 +1,12 @@
+{
+  "_comment": "same flags as t_neutral but no neutral_sentences: all 3 are FP",
+  "case_id": "t_neutral_absent",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F06",
+      "kind": "missing"
+    }
+  ],
+  "neutral_sentences": []
+}

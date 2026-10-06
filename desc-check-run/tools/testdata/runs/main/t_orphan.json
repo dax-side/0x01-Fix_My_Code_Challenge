@@ -1,0 +1,9 @@
+{
+  "case_id": "t_orphan",
+  "issues": [
+    {
+      "fact_id": "F99",
+      "kind": "missing"
+    }
+  ]
+}

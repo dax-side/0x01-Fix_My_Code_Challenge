@@ -1,0 +1,12 @@
+{
+  "_comment": "unusable output entries are FP: non-object, fact issue without fact_id, added flag without sentence",
+  "case_id": "t_malformed",
+  "base": "synthetic",
+  "issues": [
+    {
+      "fact_id": "F11",
+      "kind": "missing"
+    }
+  ],
+  "neutral_sentences": []
+}

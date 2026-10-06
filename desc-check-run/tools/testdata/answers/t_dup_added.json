@@ -1,0 +1,12 @@
+{
+  "_comment": "two flags match the same GT item: one TP, the second is FP",
+  "case_id": "t_dup_added",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The footer row is bold"
+    }
+  ],
+  "neutral_sentences": []
+}

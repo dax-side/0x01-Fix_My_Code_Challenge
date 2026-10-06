@@ -1,0 +1,16 @@
+{
+  "_comment": "containment in both directions; Jaccard alone would fail both",
+  "case_id": "t_added_contain",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The parser   SILENTLY rejects negative widths"
+    },
+    {
+      "kind": "added",
+      "sentence": "Every column is padded with exactly two spaces on the left side"
+    }
+  ],
+  "neutral_sentences": []
+}

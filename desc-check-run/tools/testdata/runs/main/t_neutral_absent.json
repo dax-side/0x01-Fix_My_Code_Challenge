@@ -1,0 +1,21 @@
+{
+  "case_id": "t_neutral_absent",
+  "issues": [
+    {
+      "fact_id": "F06",
+      "kind": "missing"
+    },
+    {
+      "kind": "added",
+      "sentence": "a  TABLE often needs a row of totals."
+    },
+    {
+      "kind": "added",
+      "sentence": "As a rule, a table often needs a row of totals. That is all."
+    },
+    {
+      "kind": "added",
+      "sentence": "Footers are quite common in reports"
+    }
+  ]
+}

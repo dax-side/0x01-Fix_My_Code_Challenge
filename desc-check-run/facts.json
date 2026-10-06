@@ -1,0 +1,664 @@
+[
+ {
+  "id": "F01",
+  "section": "arguments",
+  "text": "`tabulate()` has two new optional arguments named `footer` and `headergroups`.",
+  "spec_sentence": "`tabulate()` has two new optional arguments named `footer` and `headergroups`."
+ },
+ {
+  "id": "F02",
+  "section": "arguments",
+  "text": "Both `footer` and `headergroups` default to `None`.",
+  "spec_sentence": "Both default to `None`."
+ },
+ {
+  "id": "F03",
+  "section": "arguments",
+  "text": "Passing `None` for `footer` or `headergroups` has the same effect as leaving the argument out.",
+  "spec_sentence": "Passing `None` has the same effect as leaving the argument out."
+ },
+ {
+  "id": "F04",
+  "section": "arguments",
+  "text": "Existing arguments of `tabulate()` keep their current positions.",
+  "spec_sentence": "Existing arguments keep their current positions and defaults."
+ },
+ {
+  "id": "F05",
+  "section": "arguments",
+  "text": "Existing arguments of `tabulate()` keep their current defaults.",
+  "spec_sentence": "Existing arguments keep their current positions and defaults."
+ },
+ {
+  "id": "F06",
+  "section": "headers",
+  "text": "When rows are present, headers beyond the longest row are cut off from the end.",
+  "spec_sentence": "When rows are present, headers beyond the longest row are cut off from the end.",
+  "ambiguity": "The spec does not say whether this is new behaviour or existing behaviour, or whether it depends on footer/headergroups. 'Headers beyond the longest row' is read as headers in excess of the longest row's cell count."
+ },
+ {
+  "id": "F07",
+  "section": "footer input",
+  "text": "The `footer` argument defines the cells shown below the table data.",
+  "spec_sentence": "The `footer` argument defines the cells shown below the table data."
+ },
+ {
+  "id": "F08",
+  "section": "footer input",
+  "text": "A footer can be any iterable of cells.",
+  "spec_sentence": "A footer can be any iterable of cells.",
+  "ambiguity": "'Any iterable' is qualified by the next sentence, which rejects strings and bytes even though they are iterable."
+ },
+ {
+  "id": "F09",
+  "section": "footer input",
+  "text": "A string, bytes value, or non-iterable footer raises `TypeError`.",
+  "spec_sentence": "A string, bytes value, or non-iterable footer raises `TypeError`."
+ },
+ {
+  "id": "F10",
+  "section": "footer input",
+  "text": "If the footer has fewer cells than the table has columns, empty cells are added on the left.",
+  "spec_sentence": "If the footer has fewer cells than the table has columns, empty cells are added on the left."
+ },
+ {
+  "id": "F11",
+  "section": "footer input",
+  "text": "The left padding of a short footer is the same padding used for headers.",
+  "spec_sentence": "This is the same padding used for headers and allows the footer to leave out the `showindex` column."
+ },
+ {
+  "id": "F12",
+  "section": "footer input",
+  "text": "The left padding allows the footer to leave out the `showindex` column.",
+  "spec_sentence": "This is the same padding used for headers and allows the footer to leave out the `showindex` column."
+ },
+ {
+  "id": "F13",
+  "section": "footer input",
+  "text": "A footer with more cells than the table has columns raises `ValueError`.",
+  "spec_sentence": "A footer with more cells than the table has columns raises `ValueError`."
+ },
+ {
+  "id": "F14",
+  "section": "footer values",
+  "text": "When there are no rows and no headers, the footer determines the number of columns.",
+  "spec_sentence": "When there are no rows and no headers, the footer determines the number of columns."
+ },
+ {
+  "id": "F15",
+  "section": "footer values",
+  "text": "A `None` footer cell is displayed as empty.",
+  "spec_sentence": "A `None` footer cell is displayed as empty.",
+  "ambiguity": "The spec does not say whether `missingval` affects a `None` footer cell."
+ },
+ {
+  "id": "F16",
+  "section": "footer values",
+  "text": "Footer cells do not change the type of their columns.",
+  "spec_sentence": "Footer cells do not change the type of their columns."
+ },
+ {
+  "id": "F17",
+  "section": "footer values",
+  "text": "For numeric columns, a footer number uses `intfmt` when both the number and the column are integers.",
+  "spec_sentence": "For numeric columns, a footer number uses `intfmt` when both the number and column are integers."
+ },
+ {
+  "id": "F18",
+  "section": "footer values",
+  "text": "For numeric columns, a footer number otherwise (the number and the column are not both integers) uses `floatfmt`.",
+  "spec_sentence": "Otherwise it uses `floatfmt`.",
+  "ambiguity": "'Otherwise' is read as the complement of the previous sentence's condition, within numeric columns."
+ },
+ {
+  "id": "F19",
+  "section": "footer values",
+  "text": "The same `intfmt`/`floatfmt` rules apply to footer numbers wrapped in ANSI colour codes.",
+  "spec_sentence": "The same rules apply to numbers wrapped in ANSI colour codes, with the codes kept around the formatted number."
+ },
+ {
+  "id": "F20",
+  "section": "footer values",
+  "text": "For a footer number wrapped in ANSI colour codes, the codes are kept around the formatted number.",
+  "spec_sentence": "The same rules apply to numbers wrapped in ANSI colour codes, with the codes kept around the formatted number."
+ },
+ {
+  "id": "F21",
+  "section": "footer values",
+  "text": "Other footer values, including `True` and `False`, are displayed as text.",
+  "spec_sentence": "Other footer values, including `True` and `False`, are displayed as text.",
+  "ambiguity": "'Other footer values' is not defined exactly; it is unclear whether a number in a non-numeric column counts as 'other'."
+ },
+ {
+  "id": "F22",
+  "section": "footer width and alignment",
+  "text": "Footer cells are included when column widths are calculated.",
+  "spec_sentence": "Footer cells are included when column widths are calculated."
+ },
+ {
+  "id": "F23",
+  "section": "footer width and alignment",
+  "text": "Footer cells use the same alignment as the table data.",
+  "spec_sentence": "They use the same alignment as the table data and can therefore change the alignment of the data."
+ },
+ {
+  "id": "F24",
+  "section": "footer width and alignment",
+  "text": "Footer cells can therefore change the alignment of the data.",
+  "spec_sentence": "They use the same alignment as the table data and can therefore change the alignment of the data.",
+  "ambiguity": "The spec does not say how footer cells change the data's alignment, while it also says footer cells do not change the type of their columns."
+ },
+ {
+  "id": "F25",
+  "section": "footer placement",
+  "text": "In `html` and `unsafehtml`, the footer is a row of `td` cells inside `tfoot`.",
+  "spec_sentence": "In `html` and `unsafehtml`, the footer is a row of `td` cells inside `tfoot`, after `tbody`."
+ },
+ {
+  "id": "F26",
+  "section": "footer placement",
+  "text": "In `html` and `unsafehtml`, the footer's `tfoot` comes after `tbody`.",
+  "spec_sentence": "In `html` and `unsafehtml`, the footer is a row of `td` cells inside `tfoot`, after `tbody`."
+ },
+ {
+  "id": "F27",
+  "section": "footer placement",
+  "text": "In `pipe`, `github` and `asciidoc`, the footer is another data row.",
+  "spec_sentence": "In `pipe`, `github` and `asciidoc`, the footer is another data row."
+ },
+ {
+  "id": "F28",
+  "section": "footer placement",
+  "text": "Other formats (not `html`, `unsafehtml`, `pipe`, `github` or `asciidoc`), including a caller-created `TableFormat`, draw the footer like their header row.",
+  "spec_sentence": "Other formats, including a caller-created `TableFormat`, draw the footer like their header row."
+ },
+ {
+  "id": "F29",
+  "section": "footer placement",
+  "text": "The footer placement rule (other formats draw the footer like their header row) also applies when there are no headers or rows.",
+  "spec_sentence": "This also applies when there are no headers or rows.",
+  "ambiguity": "'This' may refer only to the previous sentence or to every footer placement rule in the paragraph. 'No headers or rows' may mean no headers and no rows, or either one missing."
+ },
+ {
+  "id": "F30",
+  "section": "footer line",
+  "text": "Formats that have a line below the header repeat that line immediately above the footer.",
+  "spec_sentence": "Formats that have a line below the header repeat that line immediately above the footer."
+ },
+ {
+  "id": "F31",
+  "section": "footer line",
+  "text": "In `latex_longtable`, the line repeated above the footer is `\\hline` without `\\endhead`.",
+  "spec_sentence": "In `latex_longtable`, the repeated line is `\\hline` without `\\endhead`."
+ },
+ {
+  "id": "F32",
+  "section": "footer line",
+  "text": "In `rst`, the line repeated above the footer uses hyphens instead of `=` signs.",
+  "spec_sentence": "In `rst`, the repeated line uses hyphens instead of `=` signs."
+ },
+ {
+  "id": "F33",
+  "section": "footer line",
+  "text": "An empty first footer cell in `rst` is written as `..`.",
+  "spec_sentence": "An empty first footer cell in `rst` is written as `..`."
+ },
+ {
+  "id": "H01",
+  "section": "headergroups structure",
+  "text": "The `headergroups` argument describes one or more levels of column groups.",
+  "spec_sentence": "The `headergroups` argument describes one or more levels of column groups."
+ },
+ {
+  "id": "H02",
+  "section": "headergroups structure",
+  "text": "A group is a list or tuple containing `(title, span)` or `(title, span, align)`.",
+  "spec_sentence": "A group is a list or tuple containing `(title, span)` or `(title, span, align)`."
+ },
+ {
+  "id": "H03",
+  "section": "headergroups structure",
+  "text": "A group's span covers adjacent columns.",
+  "spec_sentence": "The span covers adjacent columns, including the `showindex` column."
+ },
+ {
+  "id": "H04",
+  "section": "headergroups structure",
+  "text": "`align` can be `left`, `center` or `right`.",
+  "spec_sentence": "`align` can be `left`, `center` or `right`, and defaults to `center`."
+ },
+ {
+  "id": "H05",
+  "section": "headergroups structure",
+  "text": "`align` defaults to `center`.",
+  "spec_sentence": "`align` can be `left`, `center` or `right`, and defaults to `center`."
+ },
+ {
+  "id": "H06",
+  "section": "headergroups structure",
+  "text": "Group titles are converted with `str()`.",
+  "spec_sentence": "Titles are converted with `str()`."
+ },
+ {
+  "id": "H07",
+  "section": "headergroups structure",
+  "text": "ANSI colour codes in titles do not count toward their width.",
+  "spec_sentence": "ANSI colour codes in titles do not count toward their width."
+ },
+ {
+  "id": "H08",
+  "section": "headergroups levels",
+  "text": "One level is written as a list of groups, for example `[(\"A\", 2), (\"B\", 2)]`.",
+  "spec_sentence": "One level is written as a list of groups, for example `[(\"A\", 2), (\"B\", 2)]`."
+ },
+ {
+  "id": "H09",
+  "section": "headergroups levels",
+  "text": "Several levels are written as a list of levels, for example `[[(\"All\", 4)], [(\"A\", 2), (\"B\", 2)]]`.",
+  "spec_sentence": "Several levels are written as a list of levels, for example `[[(\"All\", 4)], [(\"A\", 2), (\"B\", 2)]]`."
+ },
+ {
+  "id": "H10",
+  "section": "headergroups levels",
+  "text": "`headergroups` is treated as several levels only when it is non-empty and every item is a list or tuple whose entries are all lists or tuples.",
+  "spec_sentence": "`headergroups` is treated as several levels only when it is non-empty and every item is a list or tuple whose entries are all lists or tuples."
+ },
+ {
+  "id": "H11",
+  "section": "headergroups levels",
+  "text": "When that several-levels condition is not met, `headergroups` is treated as one level.",
+  "spec_sentence": "Otherwise it is treated as one level."
+ },
+ {
+  "id": "H12",
+  "section": "headergroups levels",
+  "text": "Empty levels are allowed.",
+  "spec_sentence": "Empty levels are allowed."
+ },
+ {
+  "id": "H13",
+  "section": "headergroups errors",
+  "text": "A `TypeError` is raised when `headergroups` is a string, bytes or non-iterable.",
+  "spec_sentence": "A `TypeError` is raised when `headergroups` is a string, bytes or non-iterable."
+ },
+ {
+  "id": "H14",
+  "section": "headergroups errors",
+  "text": "A `TypeError` is raised when a group is not a list or tuple containing two or three items.",
+  "spec_sentence": "It is also raised when a group is not a list or tuple containing two or three items, or when `align` is not a string."
+ },
+ {
+  "id": "H15",
+  "section": "headergroups errors",
+  "text": "A `TypeError` is raised when `align` is not a string.",
+  "spec_sentence": "It is also raised when a group is not a list or tuple containing two or three items, or when `align` is not a string."
+ },
+ {
+  "id": "H16",
+  "section": "headergroups errors",
+  "text": "A `ValueError` is raised when a span is not a positive integer or is a boolean.",
+  "spec_sentence": "A `ValueError` is raised when a span is not a positive integer or is a boolean, and when `align` is not `left`, `center` or `right`."
+ },
+ {
+  "id": "H17",
+  "section": "headergroups errors",
+  "text": "A `ValueError` is raised when `align` is not `left`, `center` or `right`.",
+  "spec_sentence": "A `ValueError` is raised when a span is not a positive integer or is a boolean, and when `align` is not `left`, `center` or `right`."
+ },
+ {
+  "id": "H18",
+  "section": "headergroups spans",
+  "text": "Spans include the `showindex` column.",
+  "spec_sentence": "Spans include the `showindex` column.",
+  "also_in": [
+   "The span covers adjacent columns, including the `showindex` column."
+  ]
+ },
+ {
+  "id": "H19",
+  "section": "headergroups spans",
+  "text": "A level whose spans cover more columns than are available raises `ValueError`.",
+  "spec_sentence": "A level whose spans cover more columns than are available raises `ValueError`."
+ },
+ {
+  "id": "H20",
+  "section": "headergroups spans",
+  "text": "If a level's spans cover fewer columns than are available, an untitled group is added over the first columns.",
+  "spec_sentence": "If the spans cover fewer columns, an untitled group is added over the first columns.",
+  "ambiguity": "The spec says 'the first columns' without saying how many; read as the columns the spans leave uncovered."
+ },
+ {
+  "id": "H21",
+  "section": "headergroups spans",
+  "text": "Group boundaries in one level must also be boundaries in the level below.",
+  "spec_sentence": "Group boundaries in one level must also be boundaries in the level below.",
+  "ambiguity": "No error type or other outcome is stated for a level that breaks this rule."
+ },
+ {
+  "id": "H22",
+  "section": "headergroups spans",
+  "text": "An empty level is treated as one untitled group.",
+  "spec_sentence": "An empty level is treated as one untitled group.",
+  "ambiguity": "The spec does not say which columns that untitled group covers."
+ },
+ {
+  "id": "H23",
+  "section": "merged-cell formats",
+  "text": "The merged-cell formats are `simple`, `plain`, `psql`, `pretty`, and all grid and outline formats.",
+  "spec_sentence": "The merged-cell formats are `simple`, `plain`, `psql`, `pretty`, and all grid and outline formats.",
+  "ambiguity": "'All grid and outline formats' are not listed by name."
+ },
+ {
+  "id": "H24",
+  "section": "merged-cell formats",
+  "text": "In the merged-cell formats, each level is drawn above the normal header.",
+  "spec_sentence": "Each level is drawn above the normal header.",
+  "ambiguity": "The sentence does not name its scope; 'in the merged-cell formats' is taken from the paragraph, which opens by defining the merged-cell formats."
+ },
+ {
+  "id": "H25",
+  "section": "merged-cell formats",
+  "text": "In the merged-cell formats, a title is placed in one merged cell covering its group's columns and separators.",
+  "spec_sentence": "A title is placed in one merged cell covering its group's columns and separators.",
+  "ambiguity": "The sentence does not name its scope; 'in the merged-cell formats' is taken from the paragraph, which opens by defining the merged-cell formats."
+ },
+ {
+  "id": "H26",
+  "section": "merged-cell formats",
+  "text": "In the merged-cell formats, titles are padded and aligned according to `align`.",
+  "spec_sentence": "Titles are padded and aligned according to `align`.",
+  "ambiguity": "The sentence does not name its scope; 'in the merged-cell formats' is taken from the paragraph, which opens by defining the merged-cell formats."
+ },
+ {
+  "id": "H27",
+  "section": "merged-cell lines and widening",
+  "text": "In the merged-cell formats, the top line breaks only at boundaries from the top level.",
+  "spec_sentence": "The top line breaks only at boundaries from the top level.",
+  "ambiguity": "Scope (merged-cell formats) is taken from the surrounding paragraphs; `rst` later states a different top line."
+ },
+ {
+  "id": "H28",
+  "section": "merged-cell lines and widening",
+  "text": "`simple` draws its top and bottom lines even without headers.",
+  "spec_sentence": "`simple` draws its top and bottom lines even without headers.",
+  "ambiguity": "Unclear whether this applies only when `headergroups` is given, and whether 'without headers' means no `headers` argument or no header row."
+ },
+ {
+  "id": "H29",
+  "section": "merged-cell lines and widening",
+  "text": "The level line is the format's line between rows.",
+  "spec_sentence": "The level line is the format's line between rows.",
+  "ambiguity": "'Level line' is not defined; read as the line drawn below a level row."
+ },
+ {
+  "id": "H30",
+  "section": "merged-cell lines and widening",
+  "text": "A format without a line between rows uses its line below the header as the level line instead.",
+  "spec_sentence": "A format without such a line uses its line below the header instead."
+ },
+ {
+  "id": "H31",
+  "section": "merged-cell lines and widening",
+  "text": "Between two levels, the line breaks at the boundaries of the lower level.",
+  "spec_sentence": "Between two levels, the line breaks at the boundaries of the lower level."
+ },
+ {
+  "id": "H32",
+  "section": "merged-cell lines and widening",
+  "text": "Under the last level, the line breaks at every column.",
+  "spec_sentence": "Under the last level, it breaks at every column."
+ },
+ {
+  "id": "H33",
+  "section": "merged-cell lines and widening",
+  "text": "If a title and its cell padding are wider than the merged cell, the group's last column is widened.",
+  "spec_sentence": "If a title and its cell padding are wider than the merged cell, the group's last column is widened."
+ },
+ {
+  "id": "H34",
+  "section": "merged-cell lines and widening",
+  "text": "The bottom level is widened first.",
+  "spec_sentence": "The bottom level is widened first.",
+  "ambiguity": "The spec does not say what 'widened first' means when titles on several levels need widening (order of processing)."
+ },
+ {
+  "id": "H35",
+  "section": "merged-cell lines and widening",
+  "text": "Formats other than the merged-cell formats do not widen columns for titles, except `rst`.",
+  "spec_sentence": "Other formats do not widen columns for titles, except `rst`.",
+  "ambiguity": "'Other formats' is read as formats other than the merged-cell formats."
+ },
+ {
+  "id": "H36",
+  "section": "merged-cell lines and widening",
+  "text": "`rst` is the exception: the rule that other formats do not widen columns for titles does not apply to `rst`.",
+  "spec_sentence": "Other formats do not widen columns for titles, except `rst`.",
+  "ambiguity": "The spec does not say whether `rst` widens by the same rule (group's last column, bottom level first)."
+ },
+ {
+  "id": "H37",
+  "section": "multi-line titles",
+  "text": "Titles can contain `\\n`, `\\r` or `\\r\\n`.",
+  "spec_sentence": "Titles can contain `\\n`, `\\r` or `\\r\\n`."
+ },
+ {
+  "id": "H38",
+  "section": "multi-line titles",
+  "text": "A `\\r\\n` sequence counts as one line break.",
+  "spec_sentence": "A `\\r\\n` sequence counts as one line break."
+ },
+ {
+  "id": "H39",
+  "section": "multi-line titles",
+  "text": "In merged-cell formats, the level row has the height of its tallest title.",
+  "spec_sentence": "In merged-cell formats, the level row has the height of its tallest title."
+ },
+ {
+  "id": "H40",
+  "section": "multi-line titles",
+  "text": "In merged-cell formats, shorter titles get empty lines at the bottom.",
+  "spec_sentence": "Shorter titles get empty lines at the bottom."
+ },
+ {
+  "id": "H41",
+  "section": "multi-line titles",
+  "text": "Each line of a multi-line title is aligned separately.",
+  "spec_sentence": "Each line is aligned separately, and the widest line determines the required width.",
+  "ambiguity": "The sentence does not name its scope; it follows two sentences about merged-cell formats."
+ },
+ {
+  "id": "H42",
+  "section": "multi-line titles",
+  "text": "The widest line of a multi-line title determines the required width.",
+  "spec_sentence": "Each line is aligned separately, and the widest line determines the required width.",
+  "ambiguity": "The sentence does not name its scope; it follows two sentences about merged-cell formats."
+ },
+ {
+  "id": "H43",
+  "section": "multi-line titles",
+  "text": "`rst` raises `ValueError` when a title contains more than one line.",
+  "spec_sentence": "`rst` raises `ValueError` when a title contains more than one line."
+ },
+ {
+  "id": "H44",
+  "section": "multi-line titles",
+  "text": "`html` and LaTeX keep title line breaks.",
+  "spec_sentence": "`html` and LaTeX keep title line breaks.",
+  "ambiguity": "'LaTeX' is not broken down by format; `unsafehtml` is not mentioned; how a kept line break appears in the output is not stated."
+ },
+ {
+  "id": "H45",
+  "section": "rst",
+  "text": "`rst` builds its level rows like the merged-cell formats.",
+  "spec_sentence": "`rst` builds its level rows like the merged-cell formats, but its top line breaks at every column."
+ },
+ {
+  "id": "H46",
+  "section": "rst",
+  "text": "In `rst`, the top line breaks at every column.",
+  "spec_sentence": "`rst` builds its level rows like the merged-cell formats, but its top line breaks at every column."
+ },
+ {
+  "id": "H47",
+  "section": "rst",
+  "text": "In `rst`, the line after a level is made of hyphens.",
+  "spec_sentence": "The line after a level is made of hyphens and breaks at that level's group boundaries."
+ },
+ {
+  "id": "H48",
+  "section": "rst",
+  "text": "In `rst`, the line after a level breaks at that level's group boundaries.",
+  "spec_sentence": "The line after a level is made of hyphens and breaks at that level's group boundaries."
+ },
+ {
+  "id": "H49",
+  "section": "rst",
+  "text": "`rst` always left-aligns titles, regardless of `align`.",
+  "spec_sentence": "`rst` always left-aligns titles, regardless of `align`."
+ },
+ {
+  "id": "H50",
+  "section": "rst",
+  "text": "In `rst`, an empty first title is written as `..`.",
+  "spec_sentence": "An empty first title is written as `..`."
+ },
+ {
+  "id": "H51",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, each level is a `tr` containing `th` cells.",
+  "spec_sentence": "In `html` and `unsafehtml`, each level is a `tr` containing `th` cells."
+ },
+ {
+  "id": "H52",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, the level cells use the group's span.",
+  "spec_sentence": "The cells use the group's span and alignment."
+ },
+ {
+  "id": "H53",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, the level cells use the group's alignment.",
+  "spec_sentence": "The cells use the group's span and alignment.",
+  "ambiguity": "How the alignment is expressed in the HTML is not stated."
+ },
+ {
+  "id": "H54",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, a one-column group has no `colspan` attribute.",
+  "spec_sentence": "A one-column group has no `colspan` attribute."
+ },
+ {
+  "id": "H55",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, when a header row exists, the level rows are inside the `thead`.",
+  "spec_sentence": "When a header row exists, the level rows are inside the `thead`."
+ },
+ {
+  "id": "H56",
+  "section": "html",
+  "text": "In `html` and `unsafehtml`, without a header row, the level rows form their own `thead` before the `tbody`.",
+  "spec_sentence": "Without a header row, the level rows form their own `thead` before the `tbody`."
+ },
+ {
+  "id": "H57",
+  "section": "html",
+  "text": "`html` escapes titles.",
+  "spec_sentence": "`html` escapes titles and `unsafehtml` does not."
+ },
+ {
+  "id": "H58",
+  "section": "html",
+  "text": "`unsafehtml` does not escape titles.",
+  "spec_sentence": "`html` escapes titles and `unsafehtml` does not."
+ },
+ {
+  "id": "H59",
+  "section": "LaTeX",
+  "text": "In LaTeX, each level is written after the opening lines.",
+  "spec_sentence": "In LaTeX, each level is written after the opening lines.",
+  "ambiguity": "'The opening lines' are not defined."
+ },
+ {
+  "id": "H60",
+  "section": "LaTeX",
+  "text": "In LaTeX level rows, cells are separated by `&`.",
+  "spec_sentence": "Cells are separated by `&` and the row ends with ` \\\\`."
+ },
+ {
+  "id": "H61",
+  "section": "LaTeX",
+  "text": "In LaTeX, a level row ends with ` \\\\`.",
+  "spec_sentence": "Cells are separated by `&` and the row ends with ` \\\\`."
+ },
+ {
+  "id": "H62",
+  "section": "LaTeX",
+  "text": "In LaTeX, a group covering several columns uses `\\multicolumn{SPAN}{A}{TITLE}`.",
+  "spec_sentence": "A group covering several columns uses `\\multicolumn{SPAN}{A}{TITLE}`, where `A` is `l`, `c` or `r`."
+ },
+ {
+  "id": "H63",
+  "section": "LaTeX",
+  "text": "In `\\multicolumn{SPAN}{A}{TITLE}`, `A` is `l`, `c` or `r`.",
+  "spec_sentence": "A group covering several columns uses `\\multicolumn{SPAN}{A}{TITLE}`, where `A` is `l`, `c` or `r`.",
+  "ambiguity": "The mapping from `align` (`left`/`center`/`right`) to `l`/`c`/`r` is implied, not stated."
+ },
+ {
+  "id": "H64",
+  "section": "LaTeX",
+  "text": "In LaTeX, a one-column group uses its title directly.",
+  "spec_sentence": "A one-column group uses its title directly."
+ },
+ {
+  "id": "H65",
+  "section": "LaTeX",
+  "text": "In LaTeX, titles use the same escaping as headers.",
+  "spec_sentence": "Titles use the same escaping as headers, except in `latex_raw`."
+ },
+ {
+  "id": "H66",
+  "section": "LaTeX",
+  "text": "In `latex_raw`, titles are the exception to using the same escaping as headers.",
+  "spec_sentence": "Titles use the same escaping as headers, except in `latex_raw`.",
+  "ambiguity": "The spec does not say what escaping, if any, `latex_raw` applies to titles."
+ },
+ {
+  "id": "H67",
+  "section": "LaTeX rules",
+  "text": "In LaTeX, a level containing titled groups is followed by one rule for each titled group.",
+  "spec_sentence": "A level containing titled groups is followed by one rule for each titled group.",
+  "ambiguity": "Scope (LaTeX) is taken from the paragraph context; 'rule' is read as the `\\cmidrule`/`\\cline` lines named in the next sentences."
+ },
+ {
+  "id": "H68",
+  "section": "LaTeX rules",
+  "text": "`latex_booktabs` uses `\\cmidrule(lr){FIRST-LAST}` for these rules.",
+  "spec_sentence": "`latex_booktabs` uses `\\cmidrule(lr){FIRST-LAST}`."
+ },
+ {
+  "id": "H69",
+  "section": "LaTeX rules",
+  "text": "Other LaTeX formats use `\\cline{FIRST-LAST}` for these rules.",
+  "spec_sentence": "Other LaTeX formats use `\\cline{FIRST-LAST}`."
+ },
+ {
+  "id": "H70",
+  "section": "LaTeX rules",
+  "text": "In these rules, column numbers (`FIRST`, `LAST`) start at 1.",
+  "spec_sentence": "Column numbers start at 1.",
+  "ambiguity": "The sentence says only 'Column numbers'; read as `FIRST` and `LAST` in the rules just named. Whether the `showindex` column is counted is not restated here."
+ },
+ {
+  "id": "H71",
+  "section": "unsupported formats",
+  "text": "`headergroups` is not supported by `asciidoc`, `github`, `jira`, `mediawiki`, `moinmoin`, `orgtbl`, `pipe`, `presto`, `textile`, `tsv`, or a caller-created `TableFormat`.",
+  "spec_sentence": "`headergroups` is not supported by `asciidoc`, `github`, `jira`, `mediawiki`, `moinmoin`, `orgtbl`, `pipe`, `presto`, `textile`, `tsv`, or a caller-created `TableFormat`."
+ },
+ {
+  "id": "H72",
+  "section": "unsupported formats",
+  "text": "Passing `headergroups` to any of these unsupported formats raises `ValueError`.",
+  "spec_sentence": "Passing `headergroups` to any of these formats raises `ValueError`."
+ }
+]

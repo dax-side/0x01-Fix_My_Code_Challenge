@@ -1,0 +1,9 @@
+{
+  "case_id": "t_punct_literal",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "Alpha beta gamma delta epsilon zeta and then more words here now."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "case_id": "t_malformed",
+  "issues": [
+    {
+      "fact_id": "F11",
+      "kind": "missing"
+    },
+    "oops",
+    {
+      "kind": "missing"
+    },
+    {
+      "kind": "added"
+    }
+  ]
+}

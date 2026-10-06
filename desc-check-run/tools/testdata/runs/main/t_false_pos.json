@@ -1,0 +1,19 @@
+{
+  "case_id": "t_false_pos",
+  "issues": [
+    {
+      "fact_id": "F07",
+      "kind": "missing"
+    },
+    {
+      "fact_id": "F08",
+      "kind": "contradicted"
+    },
+    {
+      "kind": "added",
+      "sentence": "The tool uploads results to a server."
+    }
+  ],
+  "t_start": 10.5,
+  "t_end": 11.0
+}

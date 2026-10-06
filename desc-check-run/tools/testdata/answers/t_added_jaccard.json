@@ -1,0 +1,12 @@
+{
+  "_comment": "no containment; Jaccard 9/11 = 0.82",
+  "case_id": "t_added_jaccard",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "The renderer pads every cell with two spaces before the border"
+    }
+  ],
+  "neutral_sentences": []
+}

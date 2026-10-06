@@ -1,0 +1,7 @@
+{
+  "_comment": "no GT issues, one added flag: FP=1, precision 0, recall 1.0 (vacuous), F1 0",
+  "case_id": "t_zero_gt_flag",
+  "base": "synthetic",
+  "issues": [],
+  "neutral_sentences": []
+}

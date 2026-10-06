@@ -1,0 +1,13 @@
+{
+  "case_id": "t_added_contain",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "In this version, the parser silently rejects negative widths and prints a warning."
+    },
+    {
+      "kind": "added",
+      "sentence": "padded with exactly two spaces"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "t_perfect",
+  "issues": [
+    {
+      "fact_id": "F01",
+      "kind": "missing",
+      "evidence": "x"
+    },
+    {
+      "fact_id": "F02",
+      "kind": "contradicted",
+      "evidence": "y"
+    },
+    {
+      "kind": "added",
+      "sentence": "The widget always sends an email when the footer is empty."
+    }
+  ],
+  "t_start": 100.0,
+  "t_end": 102.0
+}

@@ -1,0 +1,16 @@
+{
+  "_comment": "O1 matches G1 (0.667) and G2 (1.0); O2 matches only G1 (0.83). Best-first gives 2 TP; first-fit would give 1",
+  "case_id": "t_greedy",
+  "base": "synthetic",
+  "issues": [
+    {
+      "kind": "added",
+      "sentence": "red green blue yellow orange"
+    },
+    {
+      "kind": "added",
+      "sentence": "red green blue yellow purple"
+    }
+  ],
+  "neutral_sentences": []
+}
